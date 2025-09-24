@@ -23,3 +23,5 @@ int main() {
     }
     return 0;
 }
+
+// Compile with: gcc -o factorial factorial.c
