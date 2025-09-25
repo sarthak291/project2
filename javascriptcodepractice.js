@@ -116,7 +116,7 @@ console.log(parseInt(a)+b);
 // JavaScript performs type coercion when using the + operator with a string and a number, resulting in string concatenation.
 // To perform numerical addition, explicitly convert the string to a number using Number() or parseInt().
 // Note: parseInt() parses up to the first non-digit character, while Number() converts the entire string to a number or returns NaN if it cannot be converted.
-*/
+
 
 let x;
 console.log(x);
@@ -142,3 +142,13 @@ console.log(y == undefined); // true (because null and undefined are loosely equ
 // Use cases:
 // Use undefined for uninitialized variables and function parameters.
 // Use null to explicitly indicate the absence of a value or object.
+*/
+
+let i=1;
+while(i<=10){
+    if(i===5){
+        continue;
+    }
+    console.log(i);
+    i++;
+}
