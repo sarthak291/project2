@@ -250,6 +250,7 @@ console.log(password);
 */
 
 
+/*
 let arr=[1,2,3,4,5];
 let arr2= new Array();
 console.log(arr[1]);
@@ -265,3 +266,18 @@ console.log(arr);
 let p = arr.splice(2,2);
 console.log(arr);
 console.log(p);
+let arr3=arr.slice(1,4);
+console.log(arr3);
+console.log(arr);
+
+arr.reverse();
+console.log(arr);
+*/
+let arr=[3,5,1,4,2];
+arr.sort();
+console.log(arr);
+let sr= arr.sort(function (a,b){
+    return b-a;
+});
+console.log(sr);
+
