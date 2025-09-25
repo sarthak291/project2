@@ -272,7 +272,7 @@ console.log(arr);
 
 arr.reverse();
 console.log(arr);
-*/
+
 let arr=[3,5,1,4,2];
 arr.sort();
 console.log(arr);
@@ -280,4 +280,21 @@ let sr= arr.sort(function (a,b){
     return b-a;
 });
 console.log(sr);
+*/
 
+let arr = [11,64,3,4,25];
+arr.forEach(function(val){
+    console.log(val+5);
+});
+let i;
+arr.forEach(function(val, idx, array) {
+    if (val == 3) {
+        array[idx] = val + 2;
+    }
+});
+console.log(arr);
+
+let newarr = arr.map(function(val){
+    return val*2;
+});
+console.log(newarr);
