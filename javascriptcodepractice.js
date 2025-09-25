@@ -142,13 +142,126 @@ console.log(y == undefined); // true (because null and undefined are loosely equ
 // Use cases:
 // Use undefined for uninitialized variables and function parameters.
 // Use null to explicitly indicate the absence of a value or object.
-*/
 
-let i=1;
-while(i<=10){
-    if(i===5){
-        continue;
+
+let i = 1;
+while (i <= 10) {
+    if (i == 5) {
+        i++;         // move i forward so you don't get stuck
+        continue;    // skip logging 5
     }
     console.log(i);
     i++;
 }
+// Output: 1 2 3 4 6 7 8 9 10
+// The continue statement skips the current iteration of the loop when i equals 5, so 5 is not logged.
+// Note: Always ensure to increment the loop variable (i in this case) before the continue statement to avoid infinite loops.  
+// The continue statement can be useful for skipping specific conditions within loops without breaking out of the loop entirely.
+
+function hello() {
+    console.log("Hello, World!");
+}
+
+let hii = hello;
+hii(); // Output: Hello, World!
+// In JavaScript, functions are first-class citizens, meaning they can be assigned to variables, passed as arguments to other functions, and returned from functions.
+// In this example, the function hello is assigned to the variable hii. When hii() is called, it invokes the original hello function, demonstrating that functions can be treated like any other variable.
+// This feature allows for higher-order functions, callbacks, and functional programming techniques in JavaScript.
+// Note: When assigning a function to a variable, do not include parentheses after the function name (e.g., use hii = hello, not hii = hello()) to avoid immediately invoking the function. 
+// Functions can also be passed as arguments to other functions:
+function greet(fn) {
+    fn();
+}
+greet(hello); // Output: Hello, World!
+// Here, the greet function takes another function as an argument and calls it, demonstrating the use of functions as first-class citizens in JavaScript.
+let hi = function() {
+    console.log("Hi, there!");
+}
+hi(); // Output: Hi, there!
+// This is an example of a function expression, where an anonymous function is assigned to the variable hi. When hi() is called, it executes the function and logs "Hi, there!" to the console.
+// Function expressions are useful for creating functions that are used only once or passed as arguments to other functions.
+// Note: Function expressions can be named or anonymous. Named function expressions can be useful for recursion or debugging, while anonymous functions are often used for short-lived tasks.
+// Arrow functions provide a concise syntax for writing functions and lexically bind the this value.
+let add = (a, b) => { return a + b};
+console.log(add(5, 3)); // Output: 8
+// In this example, the add function is defined using arrow function syntax. It takes two parameters, a and b, and returns their sum.
+// Arrow functions are particularly useful for short functions and callbacks, as they provide a more concise syntax compared to traditional function expressions.
+// Note: Arrow functions do not have their own this context; they inherit this from the surrounding lexical scope. This makes them ideal for use in methods like map, filter, and reduce where you want to maintain the context of the enclosing scope.
+// Example of arrow function with no parameters
+let greet2 = () => console.log("Hello!");
+greet2(); // Output: Hello!
+
+
+function add( a,b,c,... val)
+{
+    console.log(val);
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+add(1,2,3,4,5,6,7,8,9,0);
+
+function ab(val)
+{
+    val();
+}
+ab(function(){
+    console.log("hey");
+})
+
+function abc()
+{
+    return function(){console.log("hey buddy")};
+}
+abc()();
+let a= abc();
+a();
+
+
+
+//closure
+function abcd()
+{
+    let a=12;
+    return function(){console.log(a)};
+};
+abcd()();
+
+
+function calculatedis(discount)
+{
+    return function(price){
+        return price-price*(discount/100);
+    };
+}
+let ten= calculatedis(10);
+let twenty= calculatedis(20);
+console.log(ten(1200));
+console.log(twenty(2000));
+
+
+
+(function(){
+    const password="secrete";
+    console.log(password);
+
+})();
+console.log(password);
+*/
+
+
+let arr=[1,2,3,4,5];
+let arr2= new Array();
+console.log(arr[1]);
+arr2[0]=1;
+console.log(arr[0]);
+arr.push(6);
+console.log(arr);
+arr.pop();
+console.log(arr);
+arr.shift();
+arr.unshift(0);
+console.log(arr);
+let p = arr.splice(2,2);
+console.log(arr);
+console.log(p);
