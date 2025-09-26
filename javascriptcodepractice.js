@@ -392,7 +392,7 @@ console.log(obj.age);
 let aa="name";
 console.log(obj[aa]); //it takes the output of variable aa and print the value of that property
 console.log(obj.aa); //undefined //it is not get output because it is not a property of object 
-*/
+
 
 
 const user={
@@ -418,3 +418,113 @@ let {lat, long}= user.address.location;
 console.log(lat);
 console.log(long); //output: 40.7128 74.006
 //this used for destructuring the object and getting the value of that property
+
+
+//looping
+let obj={
+    name:"John",
+    age:21,
+    email:"test@test.com"
+};
+for(let key in obj)
+{
+    console.log(key, obj[key]);
+}
+for(let key in obj)
+{
+    console.log(`${key}: ${obj[key]}`); //two ways to print the key and value of object
+}
+
+
+let obj={
+    name:"John",
+    age:21,
+    email:"test@test.com"
+};
+console.log(Object.keys(obj));
+console.log(Object.values(obj));
+console.log(Object.entries(obj));
+//output: ['name', 'age', 'email'] ['John', 21, '
+*/
+
+//deep clone
+let obj={
+    name:"John",
+    age:21,
+    address:{
+        city:"New York",
+        state:"NY",
+        location:{
+            lat:40.7128,
+            long:74.0060,  
+        },
+    },
+};
+let obj2= Object.assign({}, obj); //output: { name: 'John', age: 21, address: { city: 'New York', state: 'NY', location: { lat: 40.7128, long: 74.006 } } }
+console.log(obj2);
+obj2.address.city="Los Angeles";
+//assign only create shallow copy not deep copy so when we change the value of obj2 it also change the value of obj
+console.log(obj.address.city); //output: Los Angeles
+console.log(obj2.address.city); //output: Los Angeles
+let obj3= JSON.parse(JSON.stringify(obj)); //this create deep copy
+obj3.address.city="Chicago";
+console.log(obj.address.city); //output: Los Angeles
+console.log(obj3.address.city); //output: Chicago
+//Object.assign() creates a shallow copy of an object, meaning that it only copies the top-level properties. If the object contains nested objects, the references to those nested objects are copied, not the actual nested objects themselves. Therefore, changes made to nested objects in the copied object will also affect the original object.
+//To create a deep copy of an object, where all levels of nested objects are copied and independent of the original object, you can use JSON.parse(JSON.stringify(object)). This method serializes the object to a JSON string and then parses it back into a new object, effectively creating a deep copy. However, this approach has limitations, such as not being able to copy functions or special object types like Date or RegExp.
+//For more complex objects or when you need to preserve special types, consider using libraries like Lodash's _.cloneDeep() function for deep cloning.
+
+
+//array of objects
+let users=[
+    {id:1, name:"John"},
+    {id:2, name:"Jane"},
+    {id:3, name:"Jim"},
+];
+let user= users.find(function(user){
+    return user.id===2;
+});
+console.log(user); // Output: {id: 2, name: "Jane"}
+// The find method is used to search through the array of objects and return the first object that matches the condition specified in the callback function. In this case, it looks for the object with an id of 2 and returns it.
+// Note: If no object matches the condition, find will return undefined. This method is useful for quickly locating specific objects within an array based on their properties.
+
+
+
+//computing property names
+let prop="name";
+let obj={
+    [prop]:"John",
+    age:21,
+};
+console.log(obj.name);
+console.log(obj["name"]);//output: John John
+// In JavaScript, you can use computed property names to dynamically set the keys of an object using expressions enclosed in square brackets ([]). This allows you to create object properties based on variable values or more complex expressions.
+// In the example above, the variable prop holds the string "name", which is then used as a key in the obj object. The value associated with this key is "John". You can access the property using both dot notation (obj.name) and bracket notation (obj["name"]).
+// This feature is particularly useful when you need to create objects with keys that are not known until runtime or when you want to use variables as property names.
+
+
+
+//can an object key be other than string?
+let obj={
+    1:"one",
+    true:"yes",
+    null:"null",
+    undefined:"undefined",
+    [Symbol("id")]:"symbol",
+};
+console.log(obj[1]);
+console.log(obj["1"]);
+console.log(obj[true]);
+console.log(obj["true"]);
+console.log(obj[null]);
+console.log(obj["null"]);
+console.log(obj[undefined]);
+console.log(obj["undefined"]);
+console.log(obj[Symbol("id")]);
+//console.log(obj.Symbol("id")); //undefined
+console.log(obj[Object.getOwnPropertySymbols(obj)[0]]); //symbol
+//output: one one yes yes null null undefined undefined undefined symbol
+// In JavaScript, object keys are typically strings or symbols. When you use non-string values (like numbers, booleans, null, or undefined) as keys, they are automatically converted to strings.
+// For example, the key 1 is converted to "1", true is converted to "true", null to "null", and undefined to "undefined". Therefore, obj[1] and obj["1"] both access the same property.
+// Symbols are a special type of key that are unique and immutable. They do not get converted to strings and can be used to create properties that won't collide with other keys. In the example, obj[Symbol("id")] creates a property with a symbol key. To access this property, you need to use the exact same symbol reference or retrieve it using Object.getOwnPropertySymbols().
+// Note: You cannot access symbol-keyed properties using dot notation or by creating a new symbol with the same description, as each symbol is unique.
