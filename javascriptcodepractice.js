@@ -280,7 +280,7 @@ let sr= arr.sort(function (a,b){
     return b-a;
 });
 console.log(sr);
-*/
+
 
 let arr = [11,64,3,4,25];
 arr.forEach(function(val){
@@ -298,3 +298,44 @@ let newarr = arr.map(function(val){
     return val*2;
 });
 console.log(newarr);
+
+
+
+//filter:
+let arr = [11,64,3,4,25];
+let newarr= arr.filter(function(val)
+{
+    if(val>11)return true;
+});
+console.log(newarr);
+
+//reduce:
+let arr=[1,2,3,4,5,6];
+let newarr=arr.reduce(function (accumulator,val){
+    return accumulator+val;
+},0);
+console.log(arr);
+console.log(newarr);
+*/
+let arr = [
+    {id: 1, key: 1},
+    {id: 2, key: 2},
+    {id: 3, key: 3}
+];
+
+let val = arr.find(function(item){
+    return item.key === 1;
+});
+
+console.log(val); // Output: {id: 1, key: 1}
+let val2 = arr.findIndex(function(item){
+    return item.key === 1;
+});
+
+console.log(val2); // Output: 0
+let has = arr.some(function(item){
+    return item.key === 1;
+});
+console.log(has);
+
+
