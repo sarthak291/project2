@@ -342,7 +342,7 @@ console.log(has);
     return item.key > 0;
  });
  console.log(all); // Output: true
-*/
+
 // The find method returns the first element in the array that satisfies the provided testing function. If no elements satisfy the condition, it returns undefined. 
 // The findIndex method returns the index of the first element that satisfies the testing function. If no elements satisfy the condition, it returns -1.
 // The some method tests whether at least one element in the array passes the test implemented by the provided function. It returns a boolean value.
@@ -375,3 +375,46 @@ color.splice(2,1);
 console.log(color); //output: ['green', 'blue', 'red']
 
 //for each loop dont have to return anything but map have to return something.
+
+
+
+
+//objects:
+let obj={
+    name:"John",
+    age:21,
+    hobbies:["reading","travelling"],
+};
+console.log(obj.name);
+console.log(obj["age"]);
+obj.age=22;
+console.log(obj.age);
+let aa="name";
+console.log(obj[aa]); //it takes the output of variable aa and print the value of that property
+console.log(obj.aa); //undefined //it is not get output because it is not a property of object 
+*/
+
+
+const user={
+    name:"John",
+    age:21,
+    address:{
+        city:"New York",
+        state:"NY",
+        location:{
+            lat:40.7128,
+            long:74.0060,
+        },
+    },
+};
+console.log(user.address.location.lat);
+console.log(user?.address?.location?.lat); //this ? is used for if any time name of any property get changed or deleted then it will not give error it will give undefined
+console.log(user?.address?.location?.latt); //undefined
+//optional chaining (?.) is a feature in JavaScript that allows you to safely access deeply nested properties of an object without having to check if each reference in the chain is valid. 
+//If any reference in the chain is null or undefined, the entire expression short-circuits and evaluates to undefined, preventing runtime errors.
+//This is particularly useful when dealing with complex objects where certain properties may not always be present, allowing for cleaner and more readable code.
+
+let {lat, long}= user.address.location;
+console.log(lat);
+console.log(long); //output: 40.7128 74.006
+//this used for destructuring the object and getting the value of that property
