@@ -316,7 +316,7 @@ let newarr=arr.reduce(function (accumulator,val){
 },0);
 console.log(arr);
 console.log(newarr);
-*/
+
 let arr = [
     {id: 1, key: 1},
     {id: 2, key: 2},
@@ -338,4 +338,40 @@ let has = arr.some(function(item){
 });
 console.log(has);
 
+ let all = arr.every(function(item){
+    return item.key > 0;
+ });
+ console.log(all); // Output: true
+*/
+// The find method returns the first element in the array that satisfies the provided testing function. If no elements satisfy the condition, it returns undefined. 
+// The findIndex method returns the index of the first element that satisfies the testing function. If no elements satisfy the condition, it returns -1.
+// The some method tests whether at least one element in the array passes the test implemented by the provided function. It returns a boolean value.
+// The every method tests whether all elements in the array pass the test implemented by the provided function. It also returns a boolean value.
+// These methods are useful for searching and validating data within arrays, providing a more functional approach to array manipulation in JavaScript.
+// Note: These methods do not modify the original array; they return new values based on the conditions specified in the callback functions.
 
+//destructuring and spread operator
+let arr=[1,2,3,4,5];
+let [a,b,...c]=arr;
+console.log(a);
+console.log(b);
+console.log(c); //output: 1 2 [3,4,5]
+let [x,y]=arr;
+console.log(x);
+console.log(y); //output: 1 2
+let [p,,q]=arr;
+console.log(p);
+console.log(q); //output: 1 3
+let arr2=[...arr,6,7,8];
+console.log(arr2); //output: [1,2,3,4,5,6,7,8] 
+//spread operator (...) copies all elements of arr into arr2 and adds 6,7,8 at the end. and arr2=arr give referance of arr to arr2 thatswhy when we change arr2 it also change arr.
+
+
+//splice once more 
+let color=["green", "red"];
+color.splice(1,0,"blue","yellow");
+console.log(color); //output: ['green', 'blue', 'yellow', 'red']
+color.splice(2,1);
+console.log(color); //output: ['green', 'blue', 'red']
+
+//for each loop dont have to return anything but map have to return something.
