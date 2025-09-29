@@ -445,7 +445,7 @@ console.log(Object.keys(obj));
 console.log(Object.values(obj));
 console.log(Object.entries(obj));
 //output: ['name', 'age', 'email'] ['John', 21, '
-*/
+
 
 //deep clone
 let obj={
@@ -528,3 +528,4 @@ console.log(obj[Object.getOwnPropertySymbols(obj)[0]]); //symbol
 // For example, the key 1 is converted to "1", true is converted to "true", null to "null", and undefined to "undefined". Therefore, obj[1] and obj["1"] both access the same property.
 // Symbols are a special type of key that are unique and immutable. They do not get converted to strings and can be used to create properties that won't collide with other keys. In the example, obj[Symbol("id")] creates a property with a symbol key. To access this property, you need to use the exact same symbol reference or retrieve it using Object.getOwnPropertySymbols().
 // Note: You cannot access symbol-keyed properties using dot notation or by creating a new symbol with the same description, as each symbol is unique.
+*/
