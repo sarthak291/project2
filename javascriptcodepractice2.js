@@ -15,3 +15,29 @@
 //5) attributes badalna
 //6)event listners
 
+//selecting element:
+//getElenentById, getElementByClassName, querySelector, querySelectorAll
+//let a = document.getElementById("ab");
+/*console.log(a);
+console.dir(a);
+
+let b = document.getElementsByClassName("abcd");
+console.log(b);
+console.dir(b);*/
+//getElementsByClassName returns html collection
+//html collection is array like object
+//html collection me array ke sare method nhi hote hai
+//html collection me index se access kar sakte hai
+//let abcd = document.querySelector("h1");
+//console.dir(abcd);
+//querySelector returns first element
+//let abcde = document.querySelectorAll("h1");
+//console.dir(abcde);
+//querySelectorAll returns nodelist
+//nodelist is array like object
+//nodelist me array ke sare method hote hai
+//nodelist me index se access kar sakte hai
+//nodelist me forEach method hota hai
+
+let h1= document.querySelector("h1");
+h1.textContent = "hello world";
